@@ -1,0 +1,84 @@
+html, body, ul, ol, li, form, fieldset, legend{
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6, p { margin: 0; }
+        
+        body{
+            font-family: 'Vollkorn', serif, Arial;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+                
+        p{
+            margin-bottom:15px;
+        }
+        
+        a{
+            color:#0073BF;
+            text-decoration:none;
+        }
+        
+        h2{
+            text-align:center;
+            font-size:32px;
+            font-weight:400;
+        }
+        
+        h4{
+            text-align:center;
+            font-size:18px; 
+            font-weight:400;            
+        }
+        
+        #wrap{          
+            width:600px;
+            margin:0 auto;
+        }
+        
+        #header{
+            margin:20px 0;
+        }
+                
+        #content{       
+            overflow:hidden;
+            -moz-box-shadow: 0 0 2px 2px #fff;
+            -webkit-box-shadow: 0 0 2px 2px #ccc;
+            box-shadow: 0 0 2px 2px #ccc;           
+        }
+        
+        .contentbox-wrapper{            
+            position:relative; 
+            left:0; 
+            width:3000px; 
+            height:100%;
+        }
+        
+        .contentbox{
+            width:580px; 
+            height:100%; 
+            float:left; 
+            padding:10px;
+            background:#fff;
+        }
+        
+        #nav {
+            margin-top:10px;
+            border-bottom: 1px solid #DDDDDD;
+            padding: 5px 10px;
+        }
+        
+        #nav ul li{
+            display:inline;
+            margin-right:10px;
+        }
+        
+        #nav a.active {
+            font-weight:bold;
+        }       
+        
+        #footer{
+            text-align:center;
+            margin-top:20px;
+        }   
