@@ -1,5 +1,6 @@
 		// Create an application module for our demo.
-		var Riadd = angular.module( "Riadd", ['mongolabResourceHttp', 'l10n', 'l10n-tools', 'my-l10n-en', 'my-l10n-fr'] );
+		var Riadd = angular.module( "Riadd", ['mongolabResourceHttp', 'l10n', 'l10n-tools', 'my-l10n-en',
+		 'my-l10n-fr','ui.bootstrap'] );
 
 		Riadd.constant('MONGOLAB_CONFIG', {API_KEY:'gghTz5cH_W7_71ZFld_BIai1gckrKps-', DB_NAME:'riadd'});
 		
@@ -7,7 +8,7 @@
     	l10n.add('en-us', {
         		document: {
             			home: 'Home',
-            			friends: 'Friends',
+            			work: 'Work',
             			contact: 'Contact'
         			},
         			locale: {
@@ -20,7 +21,7 @@
     	l10n.add('fr-fr', {
         		document: {
             			home: 'Maison',
-            			friends: 'Amis',
+            			work: 'Amis',
             			contact: 'Contacter'
         			},
         			locale: {
@@ -51,15 +52,21 @@
 						}
 					)
 					.when(
-						"/friends",
+						"/work",
 						{
-							action: "friends"
+							action: "work"
 						}
 					)
 					.when(
 						"/contact/:username",
 						{
 							action: "contact.form"
+						}
+					)
+					.when(
+						"/education",
+						{
+							action: "education"
 						}
 					)
 					.otherwise(

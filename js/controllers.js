@@ -33,15 +33,16 @@
 					// Reset the booleans used to set the class
 					// for the navigation.
 					var isHome = (renderPath[ 0 ] == "home");
-					var isFriends = (renderPath[ 0 ] == "friends");
+					var isWork = (renderPath[ 0 ] == "work");
 					var isContact = (renderPath[ 0 ] == "contact");
+					var isEdu = (renderPath[ 0 ] == "edu");
 
 					// Store the values in the model.
 					$scope.renderAction = renderAction;
 					$scope.renderPath = renderPath;
 					$scope.username = username;
 					$scope.isHome = isHome;
-					$scope.isFriends = isFriends;
+					$scope.isWork = isWork;
 					$scope.isContact = isContact;
 
 				};

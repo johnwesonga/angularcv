@@ -1,62 +1,45 @@
 <!doctype html>
-<html ng-app="Riadd">
+<html ng-app="Riadd" lang="en">
 <head>
 	<meta charset="utf-8" />
-
 	<title>AngularJS Routing</title>
-
-	<style type="text/css">
-
-		a {
-			color: #333333 ;
-			}
-
-		a.on {
-			color: #CC0000 ;
-			font-weight: bold ;
-			text-decoration: none ;
-			}
-
-	</style>
+	<meta name="author" content="John Wesonga"/>
+    <meta name="description" content="John Wesonga's interactive CV"/>
+    <link rel="stylesheet" type="text/css" href="css/scroll.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen"/>
 	<!-- Load AngularJS from the CDN. -->
-	<script
-		type="text/javascript"
-		src="lib/angular/angular.min.js">
-	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
 	<script type="text/javascript" src="lib/mongolabResourceHttp.js"></script>
 	<script type="text/javascript" src="lib/l10n/l10n-with-tools.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/service.js"></script>
-<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/service.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/ui-bootstrap-tpls-0.2.0.min.js"></script>
+   <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
 
 </head>
 <body ng-controller="AppController">
-
-	<h1>
-		AngularJS Routing
-	</h1>
-
-	<p>
-		Current Render Action:
-
-		<!--
-			We're going to bind the content of the Strong element to
-			the scope-level model, renderAction. Then, when this gets
-			set in the Controller, it will be updated here.
-		-->
-		<strong ng-bind="renderAction">Unknown</strong><br/>
-		View in <a href="#" ng-click="toggleLocale()" l10n-text="locale.toggleLocale"></a>
-	</p>
+	<div id="wrap">
 
 	<!--
 		For the navigation, we'll be conditionally adding the "on"
 		class based on the state of the current scope.
 	-->
-	<p>
-		<a href="#/home" ng-class="{ on: isHome }" l10n-text="document.home"></a> -
-		<a href="#/friends" ng-class="{ on: isFriends }" l10n-text="document.friends"></a> -
-		<a href="#/contact/ben" ng-class="{ on: isContact }" l10n-text="document.contact"></a>
-	</p>
+
+	<div id="header">
+		<h1>John Wesonga's CV</h1>
+	</div>
+		<div id="nav">
+			<ul class="nav nav-pills">
+				<li ng-class="{ active: isHome }"><a href="#/home" l10n-text="document.home" tooltip-placement="bottom" tooltip="Welcome.."></a> </li>
+				<li ng-class="{ active: isWork }"><a href="#/work" l10n-text="document.work" tooltip-placement="bottom" tooltip="My professional experience"></a></li>
+				<li ng-class="{ active: isContact }"><a href="#/contact/ben" l10n-text="document.contact" tooltip-placement="bottom" tooltip="On the Right!"></a></li>
+				<li><a href="#" ng-click="toggleLocale()" l10n-text="locale.toggleLocale"></a></li>
+		</div>
+	
+	
 
 	<!--
 		When the route changes, we're going to be setting up the
@@ -64,13 +47,19 @@
 		page is going to be rendered. We can use these values to
 		conditionally show / load parts of the page.
 	-->
-	<div ng-switch on="renderPath[ 0 ]">
+	<div id="content" ng-switch on="renderPath[ 0 ]">
+			<div class="contentbox-wrapper">
 
 		<!-- Home Content. -->
-		<div ng-switch-when="home">
+		<div ng-switch-when="home" class="contentbox">
+			<h3>Home</h3>
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis ornare nibh, vel condimentum risus blandit ut. Sed vel tortor ac ligula blandit interdum eu vel leo. In semper, nunc sit amet tincidunt volutpat, nisl elit tempor eros, at rutrum nisl enim a lorem. Ut quis tellus felis. Maecenas rhoncus accumsan odio quis faucibus. Aliquam erat tortor, vehicula eget facilisis eget, commodo et sapien. Suspendisse potenti. Praesent convallis urna non est mollis ultrices. Fusce fringilla lacinia sapien non eleifend. Morbi venenatis nulla id libero tempus et volutpat sem facilisis. Duis eu lacus sapien. Aliquam a lorem justo. Cras nec mi quam, vitae fermentum urna. </p>
 
 			<p>
-				This is the homepage content.
+				 <a><span tooltip-placement="right" tooltip="On the Right!">right</span></a> 
+
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis ornare nibh, vel condimentum risus blandit ut. Sed vel tortor ac ligula blandit interdum eu vel leo. In semper, nunc sit amet tincidunt volutpat, nisl elit tempor eros, at rutrum nisl enim a lorem. Ut quis tellus felis. Maecenas rhoncus accumsan odio quis faucibus. Aliquam erat tortor, vehicula eget facilisis eget, commodo et sapien. Suspendisse potenti. Praesent convallis urna non est mollis ultrices. Fusce fringilla lacinia sapien non eleifend. Morbi venenatis nulla id libero tempus et volutpat sem facilisis. Duis eu lacus sapien. Aliquam a lorem justo. Cras nec mi quam, vitae fermentum urna. </p>
 				<ul>
 				<li ng-repeat="tagz in tags">
 					{{tagz.tag}}
@@ -85,26 +74,27 @@
 		</div>
 
 		<!-- Friends Content. -->
-		<div ng-switch-when="friends">
+		<div ng-switch-when="work" class="contentbox">
+
+			<h3>Work</h3>
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis ornare nibh, vel condimentum risus blandit ut. Sed vel tortor ac ligula blandit interdum eu vel leo. In semper, nunc sit amet tincidunt volutpat, nisl elit tempor eros, at rutrum nisl enim a lorem. Ut quis tellus felis. Maecenas rhoncus accumsan odio quis faucibus. Aliquam erat tortor, vehicula eget facilisis eget, commodo et sapien. Suspendisse potenti. Praesent convallis urna non est mollis ultrices. Fusce fringilla lacinia sapien non eleifend. Morbi venenatis nulla id libero tempus et volutpat sem facilisis. Duis eu lacus sapien. Aliquam a lorem justo. Cras nec mi quam, vitae fermentum urna. </p>
 
 			<p>
-				Here are my friends!
-			</p>
-
-			<p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis ornare nibh, vel condimentum risus blandit ut. Sed vel tortor ac ligula blandit interdum eu vel leo. In semper, nunc sit amet tincidunt volutpat, nisl elit tempor eros, at rutrum nisl enim a lorem. Ut quis tellus felis. Maecenas rhoncus accumsan odio quis faucibus. Aliquam erat tortor, vehicula eget facilisis eget, commodo et sapien. Suspendisse potenti. Praesent convallis urna non est mollis ultrices. Fusce fringilla lacinia sapien non eleifend. Morbi venenatis nulla id libero tempus et volutpat sem facilisis. Duis eu lacus sapien. Aliquam a lorem justo. Cras nec mi quam, vitae fermentum urna. </p>
 				Sub-path: <em>{{ renderPath[ 1 ] }}</em>.
 			</p>
 
 		</div>
 
 		<!-- Contact Content. -->
-		<div ng-switch-when="contact">
+		<div ng-switch-when="contact" class="contentbox">
+
+			<h3>About</h3>
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis ornare nibh, vel condimentum risus blandit ut. Sed vel tortor ac ligula blandit interdum eu vel leo. In semper, nunc sit amet tincidunt volutpat, nisl elit tempor eros, at rutrum nisl enim a lorem. Ut quis tellus felis. Maecenas rhoncus accumsan odio quis faucibus. Aliquam erat tortor, vehicula eget facilisis eget, commodo et sapien. Suspendisse potenti. Praesent convallis urna non est mollis ultrices. Fusce fringilla lacinia sapien non eleifend. Morbi venenatis nulla id libero tempus et volutpat sem facilisis. Duis eu lacus sapien. Aliquam a lorem justo. Cras nec mi quam, vitae fermentum urna. </p>
 
 			<p>
-				Feel free to contact me.
-			</p>
 
-			<p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis ornare nibh, vel condimentum risus blandit ut. Sed vel tortor ac ligula blandit interdum eu vel leo. In semper, nunc sit amet tincidunt volutpat, nisl elit tempor eros, at rutrum nisl enim a lorem. Ut quis tellus felis. Maecenas rhoncus accumsan odio quis faucibus. Aliquam erat tortor, vehicula eget facilisis eget, commodo et sapien. Suspendisse potenti. Praesent convallis urna non est mollis ultrices. Fusce fringilla lacinia sapien non eleifend. Morbi venenatis nulla id libero tempus et volutpat sem facilisis. Duis eu lacus sapien. Aliquam a lorem justo. Cras nec mi quam, vitae fermentum urna. </p>
 				Sub-path: <em>{{ renderPath[ 1 ] }}</em>.
 			</p>
 
@@ -116,8 +106,15 @@
 
 	</div>
 
+	<!--content div-->
+</div>
 
-	
+<div id="footer">
+			Copyright 2013
+		</div>
+<!--wrap div-->
+</div>
+
 
 </body>
 </html>

@@ -8,6 +8,7 @@ var express = require('express'),
       app.set("port", process.env.PORT || 3000);
       app.use(express.logger('dev'));
       app.use("/js",express.static(__dirname + '/js'));
+      app.use("/css",express.static(__dirname + '/css'));
       app.use("/lib",express.static(__dirname + '/lib'));
     });
 
